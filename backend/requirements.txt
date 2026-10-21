@@ -1,0 +1,9 @@
+fastapi[standard]
+python-dotenv
+pytest
+httpx
+pypdf
+chromadb
+sentence-transformers
+sqlalchemy
+groq

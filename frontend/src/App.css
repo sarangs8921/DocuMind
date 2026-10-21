@@ -1,0 +1,345 @@
+
+/* ========================================
+   Global foundation
+======================================== */
+
+:root {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #202633;
+  background: #f7f8fa;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --app-bg: #f7f8fa;
+  --app-surface: #ffffff;
+  --app-text: #202633;
+  --app-muted: #697386;
+  --app-border: #e4e7ec;
+  --app-accent: #5145cd;
+  --app-accent-hover: #4338b8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--app-bg);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--app-bg);
+  color: var(--app-text);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font-size: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgb(81 69 205 / 20%);
+  outline-offset: 2px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ========================================
+   Main application shell
+======================================== */
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 320px;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--app-surface);
+}
+
+/* ========================================
+   Application header
+======================================== */
+
+.app-header {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  min-height: 72px;
+  padding: 12px 25px;
+  border-bottom: 1px solid var(--app-border);
+  background: #ffffff;
+}
+
+.brand-mark,
+.welcome-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 41px;
+  height: 41px;
+  border-radius: 12px;
+  background: var(--app-accent);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 750;
+}
+
+.app-header > div:last-child {
+  min-width: 0;
+}
+
+.app-header h1 {
+  margin: 0;
+  color: #202633;
+  font-size: 19px;
+  font-weight: 750;
+  letter-spacing: -0.6px;
+  line-height: 1.35;
+}
+
+.app-header p {
+  margin: 3px 0 0;
+  color: #697386;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ========================================
+   Main workspace layout
+======================================== */
+
+.app-main {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--app-bg);
+}
+
+.app-main > * {
+  min-width: 0;
+  min-height: 0;
+}
+
+/* ========================================
+   Optional welcome workspace
+======================================== */
+
+.workspace {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  padding: 32px;
+  background: var(--app-bg);
+}
+
+.welcome-panel {
+  width: 100%;
+  max-width: 460px;
+  text-align: center;
+}
+
+.welcome-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  border: 1px solid #e3dfff;
+  border-radius: 16px;
+  background: #f0efff;
+  color: var(--app-accent);
+  font-size: 27px;
+}
+
+.welcome-panel h2 {
+  margin: 0 0 10px;
+  color: #202633;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  line-height: 1.35;
+}
+
+.welcome-panel p {
+  margin: 0;
+  color: #697386;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ========================================
+   Shared scrollbars
+======================================== */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d3d7e0 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #d3d7e0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ========================================
+   Responsive layout
+======================================== */
+
+@media (min-width: 1500px) {
+  .app-main {
+    grid-template-columns: 300px minmax(0, 1fr);
+  }
+
+  .app-header {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .app-main {
+    grid-template-columns: 245px minmax(0, 1fr);
+  }
+
+  .app-header {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .app-shell {
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .app-header {
+    min-height: 62px;
+    gap: 10px;
+    padding: 10px 14px;
+  }
+
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+
+  .app-header h1 {
+    font-size: 17px;
+  }
+
+  .app-header p {
+    font-size: 11px;
+  }
+
+  .app-main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .document-library {
+    height: auto;
+    max-height: 34dvh;
+    min-height: 150px;
+    border-right: none;
+    border-bottom: 1px solid var(--app-border);
+  }
+
+  .chat-workspace {
+    min-height: 0;
+  }
+
+  .workspace {
+    min-height: 300px;
+    padding: 24px 16px;
+  }
+
+  .welcome-panel h2 {
+    font-size: 21px;
+  }
+
+  .welcome-panel p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 400px) {
+  .app-header {
+    padding-right: 11px;
+    padding-left: 11px;
+  }
+
+  .document-library {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+/* ========================================
+   Reduced motion accessibility
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
